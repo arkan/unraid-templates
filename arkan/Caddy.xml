@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Caddy + PHP</Name>
+  <Repository>abiosoft/caddy:php</Repository>
+  <Registry>https://hub.docker.com/r/abiosoft/caddy/</Registry>
+  <Date>2016-05-06</Date>
+  <Beta>False</Beta>
+  <Project>https://caddyserver.com/</Project>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Overview>Caddy is a web server like Apache, nginx, or lighttpd, but with different goals, features, and advantages.</Overview>
+  <Description>Caddy is a simple to use web server with built-in support for letsencrypt SSL certificates.[br]This template uses the Caddy Docker image abiosoft/caddy:php.[br]I only created this template to make it easier to run Caddy on unRAID. I am not in any way affiliated with Caddy or abiosoft.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8081</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>9000</HostPort>
+        <ContainerPort>9000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Caddy/htdocs/</HostDir>
+      <ContainerDir>/srv/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Caddy/Caddyfile</HostDir>
+      <ContainerDir>/etc/Caddyfile</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/Caddy/ssl/</HostDir>
+      <ContainerDir>/root/.caddy/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Config Name="Webroot" Target="/srv/" Default="/mnt/user/appdata/Caddy/htdocs/" Mode="rw" Description="Container Path: /srv/" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/Caddy/htdocs/</Config>
+  <Config Name="Caddyfile" Target="/etc/Caddyfile" Default="/mnt/user/appdata/Caddy/Caddyfile" Mode="rw" Description="Container Path: /etc/Caddyfile" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/Caddy/Caddyfile</Config>
+  <Config Name="SSL" Target="/root/.caddy/" Default="/mnt/user/appdata/Caddy/ssl/" Mode="rw" Description="Container Path: /root/.caddy/" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/Caddy/ssl/</Config>
+  <Config Name="HTTP Port" Target="80" Default="80" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="HTTPS Port" Target="443" Default="443" Mode="tcp" Description="Container Port: 443" Type="Port" Display="always" Required="true" Mask="false">8081</Config>
+  <Config Name="FastCGI Port" Target="9000" Default="9000" Mode="tcp" Description="Container Port: 9000" Type="Port" Display="always" Required="true" Mask="false">9000</Config>
+</Container>
