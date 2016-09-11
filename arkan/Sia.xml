@@ -4,7 +4,7 @@
   <Repository>easye/sia</Repository>
   <Registry>https://hub.docker.com/r/easye/sia/</Registry>
   <Date>2016-08-29</Date>
-  <Beta>False</Beta>
+  <Beta>True</Beta>
   <Project>https://github.com/NebulousLabs/Sia</Project>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
