@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Name>CloudFlare-DDNS</Name>
+  <Description>
+    This small application will keep a Cloudflare DNS record up to date with the Docker public IP address.[br][br]
+    [b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
+    Click [b]"Advanced View"[/b] in the upper right corner.[br]
+  Scroll down and change the [b]Environment Variables[/b] to match your CloudFlare details.
+  </Description>
+  <Support>https://github.com/arkan/cloudflare-ddns</Support>
+  <Registry>https://hub.docker.com/r/arkan/cloudflare-ddns/</Registry>
+  <GitHub>https://github.com/arkan/cloudflare-ddns</GitHub>
+  <Repository>arkan/cloudflare-ddns</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+    <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort></HostPort>
+        <ContainerPort></ContainerPort>
+        <Protocol></Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Environment>
+    <Variable>
+      <Name>CF_API_EMAIL</Name>
+      <Value>your@cloudflare_email.com</Value>
+    </Variable>
+  <Variable>
+      <Name>CF_HOST</Name>
+      <Value>sub.domain.com</Value>
+    </Variable>
+  <Variable>
+      <Name>CF_API_KEY</Name>
+      <Value>xxxxxxx</Value>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir></ContainerDir>
+      <Mode></Mode>
+    </Volume>
+  </Data>
+  <WebUI></WebUI>
+  <Banner>http://i.imgur.com/31od8sm.png</Banner>
+  <Icon>http://i.imgur.com/PKa3Sm2.png</Icon>
+  <Beta>False</Beta>
+  <Category>Network:DNS</Category>
+  <Date>2016-09-11</Date>
+</Containers>
