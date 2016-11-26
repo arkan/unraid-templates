@@ -10,6 +10,7 @@
   <Privileged>false</Privileged>
   <Overview>Easy to use SFTP server</Overview>
   <Description>Easy to use SFTP server</Description>
+  <Icon>https://mover.io/img/connectors/colour/sftp.png</Icon>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
