@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Name>Minio</Name>
+  <Description></Description>
+  <Support>https://github.com/arkan/minio</Support>
+  <GitHub>https://github.com/arkan/minio</GitHub>
+  <Repository>quay.io/arkan/minio:latest</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+    <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9000</HostPort>
+        <ContainerPort>9000</ContainerPort>
+        <Protocol></Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/export</ContainerDir>
+      <Mode></Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/root/.minio</ContainerDir>
+      <Mode></Mode>
+    </Volume>
+  </Data>
+  <ExtraParams></ExtraParams>
+  <WebUI>http://[IP]:[PORT:9000]</WebUI>
+  <Banner>http://i.imgur.com/31od8sm.png</Banner>
+  <Icon>https://static1.squarespace.com/static/5500a991e4b0ed07e64029e1/55073e80e4b08d28db62c5a3/55e3ae4fe4b0b7c58537c4e4/1440984656162/aws-s3-logo.pngw</Icon>
+  <Beta>False</Beta>
+  <Category>Storage</Category>
+  <Date>2017-02-22</Date>
+</Containers>
+
