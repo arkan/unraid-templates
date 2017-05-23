@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <Name>Sia</Name>
+  <Description></Description>
+  <Support>https://github.com/arkan/sia</Support>
+  <GitHub>https://github.com/arkan/sia</GitHub>
+  <Repository>quay.io/arkan/sia:latest</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+    <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9981</HostPort>
+        <ContainerPort>9981</ContainerPort>
+        <Protocol></Protocol>
+      </Port>
+      <Port>
+        <HostPort>9982</HostPort>
+        <ContainerPort>9982</ContainerPort>
+        <Protocol></Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/mnt/sia</ContainerDir>
+      <Mode></Mode>
+    </Volume>
+  </Data>
+  <ExtraParams></ExtraParams>
+  <Banner>http://files.coinmarketcap.com.s3-website-us-east-1.amazonaws.com/static/img/coins/200x200/siacoin.png</Banner>
+  <Icon>https://www.coingecko.com/assets/coin-250/siacoin-4bc50429690871ca69f47db8ebf0e313.png</Icon>
+  <Beta>False</Beta>
+  <Category>Storage</Category>
+  <Date>2017-05-23</Date>
+</Containers>
