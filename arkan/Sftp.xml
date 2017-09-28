@@ -3,14 +3,16 @@
   <Name>SFTP</Name>
   <Repository>atmoz/sftp</Repository>
   <Registry>https://hub.docker.com/r/atmoz/sftp/</Registry>
-  <Date>2016-09-04</Date>
-  <Beta>True</Beta>
-  <Project>https://github.com/atmoz/sftp</Project>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
+  <Support/>
   <Overview>Easy to use SFTP server</Overview>
-  <Description>Easy to use SFTP server</Description>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
   <Icon>https://mover.io/img/connectors/colour/sftp.png</Icon>
+  <ExtraParams/>
+  <Description>Easy to use SFTP server</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -23,10 +25,42 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/user/appdata/sftp/users.conf</HostDir>
-      <ContainerDir>/etc/sftp-users.conf</ContainerDir>
+      <HostDir>/mnt/cache/appdata/ssh/users.conf</HostDir>
+      <ContainerDir>/etc/sftp/users.conf</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/ssh/ssh_config/ssh_host_ed25519_key</HostDir>
+      <ContainerDir>/etc/ssh/ssh_host_ed25519_key</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/ssh/ssh_config/ssh_host_rsa_key</HostDir>
+      <ContainerDir>/etc/ssh/ssh_host_rsa_key</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/ssh/sftp.d</HostDir>
+      <ContainerDir>/etc/sftp.d/</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/ssh/users/florian/id_rsa.pub</HostDir>
+      <ContainerDir>/home/florian/.ssh/keys/id_rsa.pub</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/ssh/users/karen/id_rsa.pub</HostDir>
+      <ContainerDir>/home/karen/.ssh/keys/id_rsa.pub</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
   </Data>
   <Environment/>
+  <Config Name="User Configuration file" Target="/etc/sftp/users.conf" Default="" Mode="ro" Description="Container Path: /etc/sftp/users.conf" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ssh/users.conf</Config>
+  <Config Name="SSH Host Key #1" Target="/etc/ssh/ssh_host_ed25519_key" Default="" Mode="ro" Description="Container Path: /etc/ssh/ssh_host_ed25519_key" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ssh/ssh_config/ssh_host_ed25519_key</Config>
+  <Config Name="SSH Host Key #2" Target="/etc/ssh/ssh_host_rsa_key" Default="" Mode="ro" Description="Container Path: /etc/ssh/ssh_host_rsa_key" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ssh/ssh_config/ssh_host_rsa_key</Config>
+  <Config Name="SSH" Target="22" Default="2222" Mode="tcp" Description="Container Port: 22" Type="Port" Display="always" Required="false" Mask="false">2222</Config>
+  <Config Name="Init scripts" Target="/etc/sftp.d/" Default="" Mode="ro" Description="Container Path: /etc/sftp.d/" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ssh/sftp.d</Config>
+  <Config Name="SSH Config (Florian)" Target="/home/florian/.ssh/keys/id_rsa.pub" Default="" Mode="ro" Description="Container Path: /home/florian/.ssh/keys/id_rsa.pub" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ssh/users/florian/id_rsa.pub</Config>
+  <Config Name="SSH Config (Karen)" Target="/home/karen/.ssh/keys/id_rsa.pub" Default="" Mode="ro" Description="Container Path: /home/karen/.ssh/keys/id_rsa.pub" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/ssh/users/karen/id_rsa.pub</Config>
 </Container>
